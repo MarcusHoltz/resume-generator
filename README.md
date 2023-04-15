@@ -48,11 +48,5 @@ Uncomment these lines to have the output files created as a non-root user.
  
 ## The current date:  
  04/14/2023 
-   
-  
-  
- TIME PUBLISHED IS ALSO: 
-  
- 09:53.50 
   
   
