@@ -3,9 +3,9 @@ name: Docker Image CI
 ##  ##  ##          DONT FORGET TO CHANGE:                 ##  ##  ## 
 ##  ##  ##    settings > actions > workflow permissions    ##  ##  ##
 #-------------------------------------------------------------------# 
-#on:
+on:
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
-#  schedule:
+  schedule:
     # The shortest interval you can run scheduled workflows is once every 5 minutes.
     # Note: The schedule event can be delayed during periods of high loads of GitHub Actions workflow runs.
     # High load times include the start of every hour.
@@ -14,14 +14,14 @@ name: Docker Image CI
     # Example: every 5 minutes.
     # - cron: '*/5 * * * *'
     # Currently: every day at 10:23am UTC.
-#    - cron: "23 10 * * *"
+    - cron: "23 10 * * *"
     # - cron: "*/20 * * * *"
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+#on:
+#  push:
+#    branches: [ "main" ]
+#  pull_request:
+#    branches: [ "main" ]
 
 jobs:
   build:
@@ -44,10 +44,10 @@ jobs:
           pwd
           ls -al output
 
-      - uses: actions/upload-artifact@v3
-        with:
-          name: "Completed_Resumes"
-          path: output/
+#      - uses: actions/upload-artifact@v3
+#        with:
+#          name: "Completed_Resumes"
+#          path: output/
 
       - name: Clear README with intro text
         run: |
@@ -102,21 +102,20 @@ jobs:
           echo -e " " >> README.md
          
 
-      - name:
-          Publish date to README.md
+      - name: Publish date to README.md
           # NOTE: UTC is adjusted to local MNT time. Please correct based on local standards.
         run: |
           cat README.md
           echo -e "## The current date:  " >> README.md
           echo -e " $(date -d '-6 hour' +"%m/%d/%Y") " >> README.md
-          echo -e "   " >> README.md
           echo -e "  " >> README.md
           echo -e "  " >> README.md
-          echo -e " TIME PUBLISHED IS ALSO: " >> README.md
           echo -e "  " >> README.md
-          echo -e " $(date -d '-6 hour' +"%I:%M.%S") " >> README.md
-          echo -e "  " >> README.md
-          echo -e "  " >> README.md
+#          echo -e " TIME PUBLISHED IS ALSO: " >> README.md
+#          echo -e "  " >> README.md
+#          echo -e " $(date -d '-6 hour' +"%I:%M.%S") " >> README.md
+#          echo -e "  " >> README.md
+#          echo -e "  " >> README.md
           cat README.md
 
       - name: Push to repository
