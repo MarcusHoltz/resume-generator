@@ -100,9 +100,10 @@ jobs:
           echo -e " " >> README.md
           echo -e " " >> README.md
           echo -e " " >> README.md
-         
 
-      - name: Publish date to README.md
+
+      - name:
+          Publish date to README.md
           # NOTE: UTC is adjusted to local MNT time. Please correct based on local standards.
         run: |
           cat README.md
