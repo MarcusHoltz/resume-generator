@@ -1,0 +1,188 @@
+  holtzweb.com          Littleton, CO
+  ------------------ -- ------------------------
+  (217) 260 - 7188      marcusaholtz@gmail.com
+
+Administrator adept at performing installations and upgrades and
+providing education to novice users and technical support to resolve
+complex issues. # Resume Info
+
+This resume has been created in a dockerfile by a makefile and deployed
+using Github’s CI/CD pipeline. The document is published every 72 hours,
+with a timestamp at the last page denoting it’s publishing date.
+
+-   -   Download this document:
+        https://github.com/MarcusHoltz/resume-generator/blob/main/output/resume.pdf
+
+Technical Experience & Projects
+
+Systems Administrator
+
+2018 - Present
+
+-   • Detailed visual documentation of entire network infrastructure,
+    system architecture, process, and policies.
+-   • Trained novice users in classes setting and private tutoring
+-   • Built, configured, tested, and deployed Proxmox high availability
+    ZFS solution featuring incremental 15min snapshotting for disaster
+    recovery using cv4pve and sanoid.
+-   • System templates for cloning: CentOS, Ubuntu, FreeBSD, Debian
+    using vmdk, vdi, vhdx, qcow2, & raw file types
+-   • Created workflows to log and monitor network bandwidth, memory
+    usage, hard drive status, and application uptime using glances,
+    netdata, netflow, & diskover
+
+Virtualization Administrator
+
+2019 - Present
+
+-   • Researched cost and risk in leasing at long term off site
+    datacenter.
+
+-   • Administered networking in virtualized environments, including
+    virtualized edge routing with pfSense.
+
+-   • Designed, analyzed, optimized network infrastructure and
+    troubleshooting networks and systems.
+
+-   • System virtualization platforms and tools: Docker, QEMU, KVM.
+
+-   -   Docker was used with virt-io’s 9p filesystem to increase io
+        speed
+
+-   • Deployment and management of headless, bare metal servers in off
+    site datacenter using the model: Debian image > Proxmox baremetal >
+    isolated containers > pfsense routing > haproxy > public internet
+
+-   • Configured and deployed SecurityOnion IDS within virtualized
+    infrastructure with added SPAN port
+
+-   • Installation of virtual network infrastructure using: VMware ESXi,
+    Proxmox, Hyper-V, and Xen.
+
+Homelab
+
+My homelab features VLAN network segregation, 6 VMs, ~100 containers, 3
+gateways, and multi-tier snapshoting.
+
+Presentations
+
+Browser Privacy
+
+-   -   * BLUG (Boulder Linux Users Group) - 11/10/22
+
+-   -   * SFS (Software Freedom School) - 9/3/22
+
+-   -   -   -   Link to Slides | Link to Video
+
+Opensource Firmware on Routers
+
+-   -   * SFS (Software Freedom School) - 4/1/23
+
+-   -   -   -   Link to Slides | Link to Markdown
+
+Mastodon
+
+-   -   * SFS (Software Freedom School) - 12/3/22
+
+-   -   -   -   Link to Slides | Link to Video
+
+Leadership Activies
+
+Software Freedom School
+
+-   • Software Freedom School board member since March 2023
+
+-   • Maintain open tickets for SysOps board
+
+-   • Presented at monthly community meetings
+
+-   • Team Member in weekly Linux study group
+
+Carbondale SIU
+
+-   • Built and managed Saluki Student Investment Firm website
+
+Industry Experience
+
+IT and Web Consultation / Freelancing
+
+Holtzweb, Denver, CO
+
+-   • Established clients’ cloud based hosting environments,
+    virtualization, and operations infrastructure.
+-   • Strategized SEO/SEM campaigns across web presence including blogs,
+    email newsletters, ads & promotions resulting in a 40% increase in
+    face to face traffic and web traffic.
+
+Web Development
+
+1187, Mayer Networks, Carbondale, IL
+
+-   • Created and designed custom website layout/user interfaces
+-   • Created and designed custom website layout/user interfaces
+-   • Integrated data from various back-end services and databases –
+    election data, employee database, interactive event map
+-   • Worked directly with clients to facilitate business and marking
+    needs
+-   • Executed tests, analyzed data to identify trends and insights
+    using analytics tools and 3rd party optimization tools
+-   • Ensured all site development follows web standards and ADA
+    compliance for accessibility.
+-   • Executed SEO-based initiatives, including website analytics and
+    optimization.
+-   • Fixed broken installs, hacked sites, busted databases, and
+    never-been-updated themes/plugins.
+-   • Repaired, updated, and redesigned new & existing sites.
+-   • Designed custom website layout/user interfaces and custom backends
+    to meet project deadline/requirements.
+
+Education and Training
+
+BS in Finance Southern Illinois University
+
+Linux Foundation Certified System Administrator (LFCS): expected June
+24th
+
+Soft Skills
+
+Collaboration, Problem Solving, Communication, Critical Thinking,
+Creative Thinking, Active Learning, Adaptability, Leadership,
+Perceptiveness, Decision Making
+
+Technical Skills
+
+Operating Systems, Build and Release, Networking Protocols, Deployment,
+Source Control, Containers, Configuration Management, Programming,
+Monitoring
+
+Tools
+
+Unix/Linux, Jenkins, GIT, Salt/Ansible, Puppet/Chef, AWS/VMWare, Docker,
+Apache/Nginx, Python/Perl, Zabbix/Sensu
+
+Web Development Tools
+
+-   • CMS: WordPress, Drupal, DNN, Joomla
+
+-   • SEO: Google Analytics, Piwik, MOZ, SEMRush, Megalytic
+
+-   • Design: Adobe Creative Cloud: After Effects, Illustrator,
+    Photoshop
+
+-   • Webserver: Apache, Nginx
+
+-   • Database: MySQL,Postgres, MariaDB, Redis, MongoDB
+
+-   • CSS Boilerplate: Bootstrap, Foundation, Tailwind
+
+-   • Cloud: Azure, AWS, DigitalOcean, Cloudflare
+
+Hobbies
+
+-   -   Making mixtapes, Coffee, Beer, My 2 Year Old
+
+-   -   LoRA Radio, Network Security, Homelab
+
+References
+
+References: Available upon request.

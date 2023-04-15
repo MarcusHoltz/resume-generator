@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Marcus Holtz</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link href="data:text/css,%3C%21DOCTYPE%20html%3E%0A%3Chead%24if%28lang%29%24%20lang%3D%22%24lang%24%22%24endif%24%24if%28dir%29%24%20dir%3D%22%24dir%24%22%24endif%24%3E%0A%3Cmeta%20charset%3D%22utf%2D8%22%3E%0A%3Cmeta%20name%3D%22generator%22%20content%3D%22pandoc%22%3E%0A%24for%28author%2Dmeta%29%24%0A%3Cmeta%20name%3D%22author%22%20content%3D%22%24author%2Dmeta%24%22%3E%0A%24endfor%24%0A%24if%28date%2Dmeta%29%24%0A%3Cmeta%20name%3D%22dcterms%2Edate%22%20content%3D%22%24date%2Dmeta%24%22%3E%0A%24endif%24%0A%24if%28keywords%29%24%0A%3Cmeta%20name%3D%22keywords%22%20content%3D%22%24for%28keywords%29%24%24keywords%24%24sep%24%2C%20%24endfor%24%22%3E%0A%24endif%24%0A%3Ctitle%3E%24if%28title%2Dprefix%29%24%24title%2Dprefix%24%20%E2%80%93%20%24endif%24%24pagetitle%24%3C%2Ftitle%3E%0A%3Cstyle%3E%0A%24styles%2Ehtml%28%29%24%0A%3C%2Fstyle%3E%0A%24if%28css%29%24%0A%24for%28css%29%24%0A%3Clink%20rel%3D%22stylesheet%22%20href%3D%22%24css%24%22%3E%0A%24endfor%24%0A%24else%24%0A%3Clink%20href%3D%27https%3A%2F%2Ffonts%2Egoogleapis%2Ecom%2Fcss%3Ffamily%3DOswald%27%20rel%3D%27stylesheet%27%3E%0A%3Cstyle%3E%0Ahtml%2C%20%2Eview%20body%0A%7B%0Abackground%2Dcolor%3A%20black%3B%0Acounter%2Dreset%3A%20slideidx%3B%0A%7D%0Abody%2C%20%2Eview%20section%0A%7B%0Abackground%2Dcolor%3A%20white%3B%0Aborder%2Dradius%3A%2012px%3B%0A%7D%0A%0Asection%2C%20%2Eview%20head%20%3E%20title%20%7B%0A%0Afont%2Dfamily%3A%20%27Oswald%27%2C%20arial%2C%20serif%3B%0Afont%2Dsize%3A%2030px%3B%0A%7D%0Aaddress%2C%20blockquote%2C%20dl%2C%20fieldset%2C%20form%2C%20h1%2C%20h2%2C%20h3%2C%20h4%2C%20h5%2C%20h6%2C%20hr%2C%20ol%2C%20p%2C%20pre%2C%20table%2C%20ul%2C%20dl%0A%7B%0Apadding%3A%200px%3B%0Amargin%3A%200px%3B%0A%7D%0Ahtml%20%7B%20background%2Dcolor%3A%20black%3B%20%7D%0Abody%20%7B%20background%2Dcolor%3A%20white%3B%20border%2Dradius%3A%2012px%3B%20%7D%0A%2Eview%20section%3Aafter%20%7B%0Acounter%2Dincrement%3A%20slideidx%3B%0Acontent%3A%20counter%28slideidx%2C%20decimal%2Dleading%2Dzero%29%3B%0Aposition%3A%20absolute%3B%20bottom%3A%20%2D80px%3B%20right%3A%20100px%3B%0Acolor%3A%20white%3B%0A%7D%0A%2Eview%20head%20%3E%20title%20%7B%0Acolor%3A%20white%3B%0Atext%2Dalign%3A%20center%3B%0Amargin%3A%201em%200%201em%200%3B%0A%7D%0Ap%20%7B%0Amargin%3A%205px%3B%0Apadding%2Dbottom%3A%2015px%3B%0Afont%2Dsize%3A%20%2E85em%3B%0A%7D%0Ah1%2C%20h3%2C%20h4%2C%20h5%0A%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Ah1%0A%7B%0Amargin%2Dtop%3A%2020px%3B%0Afont%2Dsize%3A%201%2E75em%3B%0Abackground%2Dcolor%3A%20%23AAAAAA%3B%0Aborder%2Dradius%3A%2012px%3B%0A%7D%0Ah1%2Etitle%0A%7B%0Amargin%2Dtop%3A%2050px%3B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0A%7D%0Ah2%0A%7B%0Afont%2Dsize%3A%201%2E5em%3B%0Atext%2Dalign%3A%20left%3B%0Apadding%3A%2010px%205px%2010px%200px%3B%0A%7D%0Ah3%20%7B%0Amargin%3A%2010px%200%2020px%200px%3B%0Apadding%3A%207px%3B%0Afont%2Dsize%3A%201%2E12em%3B%0Abackground%2Dcolor%3A%20%23EEEEEE%3B%0Acolor%3A%20%23171717%3B%0A%7D%0Ah4%0A%7B%0Amargin%3A%200px%3B%0Apadding%3A%2015px%3B%0Afont%2Dsize%3A%201%2E1em%3B%0A%7D%0Ah5%0A%7B%0Amargin%3A%200px%3B%0Apadding%3A%200px%3B%0A%7D%0Aul%20%7B%0Amargin%3A%2050px%20200px%3B%0A%7D%0Ali%20%3E%20ul%20%7B%0Amargin%3A%2015px%2050px%3B%0A%7D%0Ablockquote%20%7B%0Aheight%3A%20100%25%3B%0Abackground%2Dcolor%3A%20black%3B%0Acolor%3A%20white%3B%0Afont%2Dsize%3A%201%2E2em%3B%0Apadding%3A%2050px%3B%0A%7D%0Ablockquote%3Abefore%20%7B%0Acontent%3A%20open%2Dquote%3B%0A%7D%0Ablockquote%3Aafter%20%7B%0Acontent%3A%20close%2Dquote%3B%0A%7D%0A%0Afigure%20%7B%0Abackground%2Dcolor%3A%20black%3B%0Awidth%3A%20100%25%3B%0Aheight%3A%20100%25%3B%0A%7D%0Afigure%20%3E%20%2A%20%7B%0Aposition%3A%20absolute%3B%0A%7D%0Afigure%20%3E%20img%2C%20figure%20%3E%20video%20%7B%0Awidth%3A%20100%25%3B%20height%3A%20100%25%3B%0A%7D%0Afigcaption%20%7B%0Amargin%3A%2070px%3B%0Afont%2Dsize%3A%201em%3B%0A%7D%0Afooter%20%7B%0Aposition%3A%20absolute%3B%0Abottom%3A%200%3B%0Awidth%3A%20100%25%3B%0Apadding%3A%2040px%3B%0Atext%2Dalign%3A%20right%3B%0Abackground%2Dcolor%3A%20%23F3F4F8%3B%0Aborder%2Dtop%3A%201px%20solid%20%23CCC%3B%0A%7D%0A%0A%0Asection%20%7B%0A%2Dmoz%2Dtransition%3A%20left%20400ms%20linear%200s%3B%0A%2Dwebkit%2Dtransition%3A%20left%20400ms%20linear%200s%3B%0A%2Dms%2Dtransition%3A%20left%20400ms%20linear%200s%3B%0Atransition%3A%20left%20400ms%20linear%200s%3B%0A%7D%0A%2Eview%20section%20%7B%0A%2Dmoz%2Dtransition%3A%20none%3B%0A%2Dwebkit%2Dtransition%3A%20none%3B%0A%2Dms%2Dtransition%3A%20none%3B%0Atransition%3A%20none%3B%0A%7D%0A%2Eview%20section%5Baria%2Dselected%5D%20%7B%0Aborder%3A%205px%20red%20solid%3B%0A%7D%0A%0Asection%20%7B%20left%3A%20%2D150%25%3B%20%7D%0A%0Asection%5Baria%2Dselected%5D%20%7B%20left%3A%200%3B%20%7D%0A%0Asection%5Baria%2Dselected%5D%20%7E%20section%20%7B%20left%3A%20%2B150%25%3B%20%7D%0A%0A%0A%2Eincremental%20%3E%20%2A%20%7B%20opacity%3A%201%3B%20%7D%0A%0A%2Eincremental%20%3E%20%2A%5Baria%2Dselected%5D%20%7B%20opacity%3A%201%3B%20%7D%0A%0A%2Eincremental%20%3E%20%2A%5Baria%2Dselected%5D%20%7E%20%2A%20%7B%20opacity%3A%200%3B%20%7D%0A%0A%23progress%2Dbar%20%7B%0Aheight%3A%202px%3B%0Abackground%3A%20%23AAA%3B%0A%7D%0A%2Eauthor%2C%20%2Edate%20%7B%0Apadding%3A%2010px%2050px%2010px%3B%0Amargin%3A%200px%3B%0Atext%2Dalign%3A%20right%3B%0Abackground%2Dcolor%3A%20%23EEEEEE%3B%0Acolor%3A%20%23777777%3B%0A%7D%0A%2Eauthor%20%7B%0Amargin%2Dtop%3A%20200px%3B%0Aheight%3A%2056px%3B%0Abackground%2Dsize%3A%20128px%2050px%3B%0Abackground%2Dposition%3A%2050px%2010px%3B%0Abackground%2Drepeat%3A%20no%2Drepeat%3B%0A%7D%0Aa%20%7B%20text%2Ddecoration%3A%20none%3B%20color%3A%20%23424479%3B%20%7D%0A%0Ablockquote%0A%7B%0Afont%2Dstyle%3A%20italic%3B%0A%7D%0Acode%0A%7B%0Awhite%2Dspace%3A%20pre%3B%0Afont%2Dsize%3A%2017px%3B%0Abackground%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dradius%3A%205px%3B%0Adisplay%3A%20block%3B%0A%7D%0Ali%0A%7B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0Asection%0A%7B%0Afont%2Dfamily%3A%20Arial%2C%20serif%3B%0Afont%2Dsize%3A%2020pt%3B%0A%7D%0Asection%2Etitleslide%20h1%0A%7B%0Amargin%2Dtop%3A%20200px%3B%0A%7D%0Atd%0A%7B%0Apadding%3A%205px%2040px%205px%205px%3B%0Aborder%2Dright%3A%202px%20dotted%20%23000000%3B%0Aborder%2Dtop%3A%201px%20solid%20%23000000%3B%0A%7D%0Atr%0A%7B%0Afont%2Dsize%3A%2070%25%3B%0A%7D%0Aul%2C%20ol%0A%7B%0Amargin%3A%205px%2010px%2010px%2050px%3B%0A%7D%0Aq%0A%7B%0Aquotes%3A%20%22%E2%80%9C%22%20%22%E2%80%9D%22%20%22%E2%80%98%22%20%22%E2%80%99%22%3B%0A%7D%0A%0Afigure%0A%7B%0Abackground%2Dcolor%3A%20white%3B%0Adisplay%3A%20block%3B%0A%7D%0Afigcaption%0A%7B%0Amargin%3A%2070px%3B%0A%7D%0Afooter%0A%7B%0Aposition%3A%20absolute%3B%0Abottom%3A%200%3B%0Awidth%3A%20100%25%3B%0Apadding%3A%2040px%3B%0Atext%2Dalign%3A%20right%3B%0Abackground%2Dcolor%3A%20%23F3F4F8%3B%0Aborder%2Dtop%3A%201px%20solid%20%23CCC%3B%0A%7D%0A%2Estrike%0A%7B%0Atext%2Ddecoration%3A%20line%2Dthrough%3B%0A%7D%0A%3C%2Fstyle%3E%0A%24endif%24%0A%24if%28math%29%24%0A%24math%24%0A%24endif%24%0A%24for%28header%2Dincludes%29%24%0A%24header%2Dincludes%24%0A%24endfor%24%0A%3C%2Fhead%3E%0A%3Cbody%3E%0A%24if%28title%29%24%0A%3Csection%20class%3D%22title%22%3E%0A%3Ch1%20class%3D%22title%22%3E%24title%24%3C%2Fh1%3E%0A%24if%28subtitle%29%24%0A%3Ch1%20class%3D%22subtitle%22%3E%24subtitle%24%3C%2Fh1%3E%0A%24endif%24%0A%3Cfooter%3E%0A%24if%28author%29%24%3Cspan%20class%3D%22author%22%3E%24for%28author%29%24%24author%24%24sep%24%2C%20%24endfor%24%3C%2Fspan%3E%20%C2%B7%20%24endif%24%24if%28institute%29%24%3Cspan%20class%3D%22institute%22%3E%24for%28institute%29%24%24institute%24%24sep%24%2C%20%24endfor%24%3C%2Fspan%3E%20%C2%B7%20%24endif%24%24if%28date%29%24%3Cspan%20class%3D%22date%22%3E%24date%24%3C%2Fspan%3E%24endif%24%0A%3C%2Ffooter%3E%0A%3C%2Fsection%3E%0A%24endif%24%0A%24if%28toc%29%24%0A%3Csection%20id%3D%22%24idprefix%24TOC%22%3E%0A%24table%2Dof%2Dcontents%24%0A%3C%2Fsection%3E%0A%24endif%24%0A%24for%28include%2Dbefore%29%24%0A%24include%2Dbefore%24%0A%24endfor%24%0A%24body%24%0A%24for%28include%2Dafter%29%24%0A%24include%2Dafter%24%0A%24endfor%24%0A%24dzslides%2Dcore%24%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E%0A" rel="stylesheet">
+  
+</head>
+<body>
+<section class="title">
+  <h1 class="title">Marcus Holtz</h1>
+  <footer>
+     · 
+  </footer>
+</section>
+<section class="slide level1">
+
+<table>
+<thead>
+<tr class="header">
+<th><a href="https://holtzweb.com">holtzweb.com</a></th>
+<th></th>
+<th>Littleton, CO</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(217) 260 - 7188</td>
+<td></td>
+<td>marcusaholtz@gmail.com</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Administrator adept at performing installations and upgrades and providing education to novice users and technical support to resolve complex issues.</strong> # Resume Info</p>
+<p>This resume has been created in a <a href="https://github.com/MarcusHoltz/resume-generator/blob/main/dockerfile">dockerfile</a> by a <a href="https://github.com/MarcusHoltz/resume-generator/blob/main/makefile">makefile</a> and deployed using Github’s <a href="https://github.com/MarcusHoltz/resume-generator/blob/main/.github/workflows/docker-image.yml">CI/CD pipeline</a>. The document is published every 72 hours, with a timestamp at the last page denoting it’s publishing date.</p>
+<ul>
+<li><ul>
+<li>Download this document: <a href="https://github.com/MarcusHoltz/resume-generator/blob/main/output/resume.pdf">https://github.com/MarcusHoltz/resume-generator/blob/main/output/resume.pdf</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="technical-experience-projects" class="slide level1">
+<h1>Technical Experience &amp; Projects</h1>
+<h2 id="systems-administrator">Systems Administrator</h2>
+<p><strong>2018 - Present</strong></p>
+<ul>
+<li>• Detailed visual documentation of entire network infrastructure, system architecture, process, and policies.</li>
+<li>• Trained novice users in classes setting and private tutoring</li>
+<li>• Built, configured, tested, and deployed Proxmox high availability ZFS solution featuring incremental 15min snapshotting for disaster recovery using <a href="https://github.com/Corsinvest/cv4pve-autosnap">cv4pve</a> and <a href="https://github.com/jimsalterjrs/sanoid">sanoid</a>.</li>
+<li>• System templates for cloning: CentOS, Ubuntu, FreeBSD, Debian using vmdk, vdi, vhdx, qcow2, &amp; raw file types</li>
+<li>• Created workflows to log and monitor network bandwidth, memory usage, hard drive status, and application uptime using glances, netdata, netflow, &amp; diskover</li>
+</ul>
+<h2 id="virtualization-administrator">Virtualization Administrator</h2>
+<p><strong>2019 - Present</strong></p>
+<ul>
+<li>• Researched cost and risk in leasing at long term off site datacenter.</li>
+<li>• Administered networking in virtualized environments, including virtualized edge routing with pfSense.</li>
+<li>• Designed, analyzed, optimized network infrastructure and troubleshooting networks and systems.</li>
+<li>• System virtualization platforms and tools: Docker, QEMU, KVM.</li>
+<li><ul>
+<li>Docker was used with virt-io’s 9p filesystem to increase io speed</li>
+</ul></li>
+<li>• Deployment and management of headless, bare metal servers in off site datacenter using the model: Debian image &gt; Proxmox baremetal &gt; isolated containers &gt; pfsense routing &gt; haproxy &gt; public internet</li>
+<li>• Configured and deployed SecurityOnion IDS within virtualized infrastructure with added SPAN port</li>
+<li>• Installation of virtual network infrastructure using: VMware ESXi, Proxmox, Hyper-V, and Xen.</li>
+</ul>
+<h2 id="homelab">Homelab</h2>
+<p><strong><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSi5v2k_D79Qt8x_NAfr766UzHH1ddsXiPcn0Epben6a6TGPmGV-ywPLrpR4mmk575Pt3c4XSK-3EI2/pubhtml?gid=1093046237&amp;single=true">My homelab</a> features <a href="https://docs.google.com/spreadsheets/d/1wGjdCJFOPo7gF1jrSo6Y9S_uc8N1rTyLKcYWGcmCcBk/edit?usp=sharing">VLAN network segregation</a>, 6 VMs, ~100 containers, 3 gateways, and multi-tier snapshoting.</strong></p>
+</section>
+<section id="presentations" class="slide level1">
+<h1>Presentations</h1>
+<h2 id="browser-privacy">Browser Privacy</h2>
+<ul>
+<li><ul>
+<li>* BLUG (Boulder Linux Users Group) - <a href="https://www.meetup.com/boulder-linux-users-group-blug/events/pqbkrqydcpbnb/">11/10/22</a></li>
+</ul></li>
+<li><ul>
+<li>* SFS (Software Freedom School) - <a href="https://www.meetup.com/sofreeus/events/287663325/">9/3/22</a></li>
+</ul></li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><a href="https://nextcloud.sofree.us/index.php/s/L4cP2rzXZQgBisp">Link to Slides</a> | <a href="https://nextcloud.sofree.us/index.php/s/6ntcY6iyDSnyLBZ">Link to Video</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="opensource-firmware-on-routers">Opensource Firmware on Routers</h2>
+<ul>
+<li><ul>
+<li>* SFS (Software Freedom School) - <a href="https://www.meetup.com/sofreeus/events/292349413/">4/1/23</a></li>
+</ul></li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><a href="https://www.holtzweb.com/openwrt-presentation.html">Link to Slides</a> | <a href="https://nextcloud.sofree.us/index.php/s/WWkasZJR8sT9RXj">Link to Markdown</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="mastodon">Mastodon</h2>
+<ul>
+<li><ul>
+<li>* SFS (Software Freedom School) - <a href="https://www.meetup.com/sofreeus/events/289682203/">12/3/22</a></li>
+</ul></li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><a href="https://nextcloud.sofree.us/index.php/s/rzi7Jr6DmATHyoE">Link to Slides</a> | <a href="https://nextcloud.sofree.us/index.php/s/eEkBPKgTw4aQRDH">Link to Video</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="leadership-activies" class="slide level1">
+<h1>Leadership Activies</h1>
+<h2 id="software-freedom-school">Software Freedom School</h2>
+<ul>
+<li><p>• Software Freedom School board member since March 2023</p></li>
+<li><p>• Maintain open tickets for <a href="https://gitlab.com/sofreeus/sfs-sysops/-/boards">SysOps board</a></p></li>
+<li><p>• Presented at monthly community meetings</p></li>
+<li><p>• Team Member in weekly Linux study group</p></li>
+</ul>
+<h2 id="carbondale-siu">Carbondale SIU</h2>
+<ul>
+<li>• Built and managed Saluki Student Investment Firm website</li>
+</ul>
+</section>
+<section id="industry-experience" class="slide level1">
+<h1>Industry Experience</h1>
+<h2 id="it-and-web-consultation-freelancing">IT and Web Consultation / Freelancing</h2>
+<p><strong>Holtzweb, Denver, CO</strong></p>
+<ul>
+<li>• Established clients’ cloud based hosting environments, virtualization, and operations infrastructure.</li>
+<li>• Strategized SEO/SEM campaigns across web presence including blogs, email newsletters, ads &amp; promotions resulting in a 40% increase in face to face traffic and web traffic.</li>
+</ul>
+<h2 id="web-development">Web Development</h2>
+<p><strong>1187, Mayer Networks, Carbondale, IL</strong></p>
+<ul>
+<li>• Created and designed custom website layout/user interfaces</li>
+<li>• Created and designed custom website layout/user interfaces</li>
+<li>• Integrated data from various back-end services and databases – election data, employee database, interactive event map</li>
+<li>• Worked directly with clients to facilitate business and marking needs</li>
+<li>• Executed tests, analyzed data to identify trends and insights using analytics tools and 3rd party optimization tools</li>
+<li>• Ensured all site development follows web standards and ADA compliance for accessibility.</li>
+<li>• Executed SEO-based initiatives, including website analytics and optimization.</li>
+<li>• Fixed broken installs, hacked sites, busted databases, and never-been-updated themes/plugins.</li>
+<li>• Repaired, updated, and redesigned new &amp; existing sites.</li>
+<li>• Designed custom website layout/user interfaces and custom backends to meet project deadline/requirements.</li>
+</ul>
+</section>
+<section id="education-and-training" class="slide level1">
+<h1>Education and Training</h1>
+<p><em>BS in Finance</em> Southern Illinois University</p>
+<p><em>Linux Foundation Certified System Administrator (LFCS): expected June 24th</em></p>
+<h2 id="soft-skills">Soft Skills</h2>
+<p>Collaboration, Problem Solving, Communication, Critical Thinking, Creative Thinking, Active Learning, Adaptability, Leadership, Perceptiveness, Decision Making</p>
+<h2 id="technical-skills">Technical Skills</h2>
+<p>Operating Systems, Build and Release, Networking Protocols, Deployment, Source Control, Containers, Configuration Management, Programming, Monitoring</p>
+<h2 id="tools">Tools</h2>
+<p>Unix/Linux, Jenkins, GIT, Salt/Ansible, Puppet/Chef, AWS/VMWare, Docker, Apache/Nginx, Python/Perl, Zabbix/Sensu</p>
+<p><strong>Web Development Tools</strong></p>
+<ul>
+<li><p>• CMS: WordPress, Drupal, DNN, Joomla</p></li>
+<li><p>• SEO: Google Analytics, Piwik, MOZ, SEMRush, Megalytic</p></li>
+<li><p>• Design: Adobe Creative Cloud: After Effects, Illustrator, Photoshop</p></li>
+<li><p>• Webserver: Apache, Nginx</p></li>
+<li><p>• Database: MySQL,Postgres, MariaDB, Redis, MongoDB</p></li>
+<li><p>• CSS Boilerplate: Bootstrap, Foundation, Tailwind</p></li>
+<li><p>• Cloud: Azure, AWS, DigitalOcean, Cloudflare</p></li>
+</ul>
+</section>
+<section id="hobbies" class="slide level1">
+<h1>Hobbies</h1>
+<ul>
+<li><ul>
+<li>Making mixtapes, Coffee, Beer, My 2 Year Old</li>
+</ul></li>
+<li><ul>
+<li>LoRA Radio, Network Security, Homelab</li>
+</ul></li>
+</ul>
+<h2 id="references">References</h2>
+<p>References: Available upon request.</p>
+</section>
+<!-- {{{{ dzslides core
+#
+#
+#     __  __  __       .  __   ___  __
+#    |  \  / /__` |    | |  \ |__  /__`
+#    |__/ /_ .__/ |___ | |__/ |___ .__/ core :€
+#
+#
+# The following block of code is not supposed to be edited.
+# But if you want to change the behavior of these slides,
+# feel free to hack it!
+#
+-->
+
+<div id="progress-bar"></div>
+
+<!-- Default Style -->
+<style>
+  * { margin: 0; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+  [role="note"] { display: none; }
+  body {
+    width: 800px; height: 600px;
+    margin-left: -400px; margin-top: -300px;
+    position: absolute; top: 50%; left: 50%;
+    overflow: hidden;
+    display: none;
+  }
+  .view body {
+    position: static;
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
+    display: inline-block;
+    overflow: visible; overflow-x: hidden;
+    /* undo Dz.onresize */
+    transform: none !important;
+    -moz-transform: none !important;
+    -webkit-transform: none !important;
+    -o-transform: none !important;
+    -ms-transform: none !important;
+  }
+  .view head, .view head > title { display: block }
+  section {
+    position: absolute;
+    pointer-events: none;
+    width: 100%; height: 100%;
+  }
+  .view section {
+    pointer-events: auto;
+    position: static;
+    width: 800px; height: 600px;
+    margin: -150px -200px;
+    float: left;
+
+    transform: scale(.4);
+    -moz-transform: scale(.4);
+    -webkit-transform: scale(.4);
+    -o-transform: scale(.4);
+    -ms-transform: scale(.4);
+  }
+  .view section > * { pointer-events: none; }
+  section[aria-selected] { pointer-events: auto; }
+  html { overflow: hidden; }
+  html.view { overflow: visible; }
+  body.loaded { display: block; }
+  .incremental {visibility: hidden; }
+  .incremental[active] {visibility: visible; }
+  #progress-bar{
+    bottom: 0;
+    position: absolute;
+    -moz-transition: width 400ms linear 0s;
+    -webkit-transition: width 400ms linear 0s;
+    -ms-transition: width 400ms linear 0s;
+    transition: width 400ms linear 0s;
+  }
+  .view #progress-bar {
+    display: none;
+  }
+</style>
+
+<script>
+  var Dz = {
+    remoteWindows: [],
+    idx: -1,
+    step: 0,
+    html: null,
+    slides: null,
+    progressBar : null,
+    params: {
+      autoplay: "1"
+    }
+  };
+
+  Dz.init = function() {
+    document.body.className = "loaded";
+    this.slides = Array.prototype.slice.call($$("body > section"));
+    this.progressBar = $("#progress-bar");
+    this.html = document.body.parentNode;
+    this.setupParams();
+    this.onhashchange();
+    this.setupTouchEvents();
+    this.onresize();
+    this.setupView();
+  }
+
+  Dz.setupParams = function() {
+    var p = window.location.search.substr(1).split('&');
+    p.forEach(function(e, i, a) {
+      var keyVal = e.split('=');
+      Dz.params[keyVal[0]] = decodeURIComponent(keyVal[1]);
+    });
+  // Specific params handling
+    if (!+this.params.autoplay)
+      $$.forEach($$("video"), function(v){ v.controls = true });
+  }
+
+  Dz.onkeydown = function(aEvent) {
+    // Don't intercept keyboard shortcuts
+    if (aEvent.altKey
+      || aEvent.ctrlKey
+      || aEvent.metaKey
+      || aEvent.shiftKey) {
+      return;
+    }
+    if ( aEvent.keyCode == 37 // left arrow
+      || aEvent.keyCode == 38 // up arrow
+      || aEvent.keyCode == 33 // page up
+    ) {
+      aEvent.preventDefault();
+      this.back();
+    }
+    if ( aEvent.keyCode == 39 // right arrow
+      || aEvent.keyCode == 40 // down arrow
+      || aEvent.keyCode == 34 // page down
+    ) {
+      aEvent.preventDefault();
+      this.forward();
+    }
+    if (aEvent.keyCode == 35) { // end
+      aEvent.preventDefault();
+      this.goEnd();
+    }
+    if (aEvent.keyCode == 36) { // home
+      aEvent.preventDefault();
+      this.goStart();
+    }
+    if (aEvent.keyCode == 32) { // space
+      aEvent.preventDefault();
+      this.toggleContent();
+    }
+    if (aEvent.keyCode == 70) { // f
+      aEvent.preventDefault();
+      this.goFullscreen();
+    }
+    if (aEvent.keyCode == 79) { // o
+      aEvent.preventDefault();
+      this.toggleView();
+    }
+  }
+
+  /* Touch Events */
+
+  Dz.setupTouchEvents = function() {
+    var orgX, newX;
+    var tracking = false;
+
+    var db = document.body;
+    db.addEventListener("touchstart", start.bind(this), false);
+    db.addEventListener("touchmove", move.bind(this), false);
+
+    function start(aEvent) {
+      aEvent.preventDefault();
+      tracking = true;
+      orgX = aEvent.changedTouches[0].pageX;
+    }
+
+    function move(aEvent) {
+      if (!tracking) return;
+      newX = aEvent.changedTouches[0].pageX;
+      if (orgX - newX > 100) {
+        tracking = false;
+        this.forward();
+      } else {
+        if (orgX - newX < -100) {
+          tracking = false;
+          this.back();
+        }
+      }
+    }
+  }
+
+  Dz.setupView = function() {
+    document.body.addEventListener("click", function ( e ) {
+      if (!Dz.html.classList.contains("view")) return;
+      if (!e.target || e.target.nodeName != "SECTION") return;
+
+      Dz.html.classList.remove("view");
+      Dz.setCursor(Dz.slides.indexOf(e.target) + 1);
+    }, false);
+  }
+
+  /* Adapt the size of the slides to the window */
+
+  Dz.onresize = function() {
+    var db = document.body;
+    var sx = db.clientWidth / window.innerWidth;
+    var sy = db.clientHeight / window.innerHeight;
+    var transform = "scale(" + (1/Math.max(sx, sy)) + ")";
+
+    db.style.MozTransform = transform;
+    db.style.WebkitTransform = transform;
+    db.style.OTransform = transform;
+    db.style.msTransform = transform;
+    db.style.transform = transform;
+  }
+
+
+  Dz.getNotes = function(aIdx) {
+    var s = $("section:nth-of-type(" + aIdx + ")");
+    var d = s.$("[role='note']");
+    return d ? d.innerHTML : "";
+  }
+
+  Dz.onmessage = function(aEvent) {
+    var argv = aEvent.data.split(" "), argc = argv.length;
+    argv.forEach(function(e, i, a) { a[i] = decodeURIComponent(e) });
+    var win = aEvent.source;
+    if (argv[0] === "REGISTER" && argc === 1) {
+      this.remoteWindows.push(win);
+      this.postMsg(win, "REGISTERED", document.title, this.slides.length);
+      this.postMsg(win, "CURSOR", this.idx + "." + this.step);
+      return;
+    }
+    if (argv[0] === "BACK" && argc === 1)
+      this.back();
+    if (argv[0] === "FORWARD" && argc === 1)
+      this.forward();
+    if (argv[0] === "START" && argc === 1)
+      this.goStart();
+    if (argv[0] === "END" && argc === 1)
+      this.goEnd();
+    if (argv[0] === "TOGGLE_CONTENT" && argc === 1)
+      this.toggleContent();
+    if (argv[0] === "SET_CURSOR" && argc === 2)
+      window.location.hash = "#" + argv[1];
+    if (argv[0] === "GET_CURSOR" && argc === 1)
+      this.postMsg(win, "CURSOR", this.idx + "." + this.step);
+    if (argv[0] === "GET_NOTES" && argc === 1)
+      this.postMsg(win, "NOTES", this.getNotes(this.idx));
+  }
+
+  Dz.toggleContent = function() {
+    // If a Video is present in this new slide, play it.
+    // If a Video is present in the previous slide, stop it.
+    var s = $("section[aria-selected]");
+    if (s) {
+      var video = s.$("video");
+      if (video) {
+        if (video.ended || video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      }
+    }
+  }
+
+  Dz.setCursor = function(aIdx, aStep) {
+    // If the user change the slide number in the URL bar, jump
+    // to this slide.
+    aStep = (aStep != 0 && typeof aStep !== "undefined") ? "." + aStep : ".0";
+    window.location.hash = "#" + aIdx + aStep;
+  }
+
+  Dz.onhashchange = function() {
+    var cursor = window.location.hash.split("#"),
+        newidx = 1,
+        newstep = 0;
+    if (cursor.length == 2) {
+      newidx = ~~cursor[1].split(".")[0];
+      newstep = ~~cursor[1].split(".")[1];
+      if (newstep > Dz.slides[newidx - 1].$$('.incremental > *').length) {
+        newstep = 0;
+        newidx++;
+      }
+    }
+    this.setProgress(newidx, newstep);
+    if (newidx != this.idx) {
+      this.setSlide(newidx);
+    }
+    if (newstep != this.step) {
+      this.setIncremental(newstep);
+    }
+    for (var i = 0; i < this.remoteWindows.length; i++) {
+      this.postMsg(this.remoteWindows[i], "CURSOR", this.idx + "." + this.step);
+    }
+  }
+
+  Dz.back = function() {
+    if (this.idx == 1 && this.step == 0) {
+      return;
+    }
+    if (this.step == 0) {
+      this.setCursor(this.idx - 1,
+                     this.slides[this.idx - 2].$$('.incremental > *').length);
+    } else {
+      this.setCursor(this.idx, this.step - 1);
+    }
+  }
+
+  Dz.forward = function() {
+    if (this.idx >= this.slides.length &&
+        this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
+        return;
+    }
+    if (this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
+      this.setCursor(this.idx + 1, 0);
+    } else {
+      this.setCursor(this.idx, this.step + 1);
+    }
+  }
+
+  Dz.goStart = function() {
+    this.setCursor(1, 0);
+  }
+
+  Dz.goEnd = function() {
+    var lastIdx = this.slides.length;
+    var lastStep = this.slides[lastIdx - 1].$$('.incremental > *').length;
+    this.setCursor(lastIdx, lastStep);
+  }
+
+  Dz.toggleView = function() {
+    this.html.classList.toggle("view");
+
+    if (this.html.classList.contains("view")) {
+      $("section[aria-selected]").scrollIntoView(true);
+    }
+  }
+
+  Dz.setSlide = function(aIdx) {
+    this.idx = aIdx;
+    var old = $("section[aria-selected]");
+    var next = $("section:nth-of-type("+ this.idx +")");
+    if (old) {
+      old.removeAttribute("aria-selected");
+      var video = old.$("video");
+      if (video) {
+        video.pause();
+      }
+    }
+    if (next) {
+      next.setAttribute("aria-selected", "true");
+      if (this.html.classList.contains("view")) {
+        next.scrollIntoView();
+      }
+      var video = next.$("video");
+      if (video && !!+this.params.autoplay) {
+        video.play();
+      }
+    } else {
+      // That should not happen
+      this.idx = -1;
+      // console.warn("Slide doesn't exist.");
+    }
+  }
+
+  Dz.setIncremental = function(aStep) {
+    this.step = aStep;
+    var old = this.slides[this.idx - 1].$('.incremental > *[aria-selected]');
+    if (old) {
+      old.removeAttribute('aria-selected');
+    }
+    var incrementals = $$('.incremental');
+    if (this.step <= 0) {
+      $$.forEach(incrementals, function(aNode) {
+        aNode.removeAttribute('active');
+      });
+      return;
+    }
+    var next = this.slides[this.idx - 1].$$('.incremental > *')[this.step - 1];
+    if (next) {
+      next.setAttribute('aria-selected', true);
+      next.parentNode.setAttribute('active', true);
+      var found = false;
+      $$.forEach(incrementals, function(aNode) {
+        if (aNode != next.parentNode)
+          if (found)
+            aNode.removeAttribute('active');
+          else
+            aNode.setAttribute('active', true);
+        else
+          found = true;
+      });
+    } else {
+      setCursor(this.idx, 0);
+    }
+    return next;
+  }
+
+  Dz.goFullscreen = function() {
+    var html = $('html'),
+        requestFullscreen = html.requestFullscreen || html.requestFullScreen || html.mozRequestFullScreen || html.webkitRequestFullScreen;
+    if (requestFullscreen) {
+      requestFullscreen.apply(html);
+    }
+  }
+  
+  Dz.setProgress = function(aIdx, aStep) {
+    var slide = $("section:nth-of-type("+ aIdx +")");
+    if (!slide)
+      return;
+    var steps = slide.$$('.incremental > *').length + 1,
+        slideSize = 100 / (this.slides.length - 1),
+        stepSize = slideSize / steps;
+    this.progressBar.style.width = ((aIdx - 1) * slideSize + aStep * stepSize) + '%';
+  }
+  
+  Dz.postMsg = function(aWin, aMsg) { // [arg0, [arg1...]]
+    aMsg = [aMsg];
+    for (var i = 2; i < arguments.length; i++)
+      aMsg.push(encodeURIComponent(arguments[i]));
+    aWin.postMessage(aMsg.join(" "), "*");
+  }
+  
+  function init() {
+    Dz.init();
+    window.onkeydown = Dz.onkeydown.bind(Dz);
+    window.onresize = Dz.onresize.bind(Dz);
+    window.onhashchange = Dz.onhashchange.bind(Dz);
+    window.onmessage = Dz.onmessage.bind(Dz);
+  }
+
+  window.onload = init;
+</script>
+
+
+<script> // Helpers
+  if (!Function.prototype.bind) {
+    Function.prototype.bind = function (oThis) {
+
+      // closest thing possible to the ECMAScript 5 internal IsCallable
+      // function 
+      if (typeof this !== "function")
+      throw new TypeError(
+        "Function.prototype.bind - what is trying to be fBound is not callable"
+      );
+
+      var aArgs = Array.prototype.slice.call(arguments, 1),
+          fToBind = this,
+          fNOP = function () {},
+          fBound = function () {
+            return fToBind.apply( this instanceof fNOP ? this : oThis || window,
+                   aArgs.concat(Array.prototype.slice.call(arguments)));
+          };
+
+      fNOP.prototype = this.prototype;
+      fBound.prototype = new fNOP();
+
+      return fBound;
+    };
+  }
+
+  var $ = (HTMLElement.prototype.$ = function(aQuery) {
+    return this.querySelector(aQuery);
+  }).bind(document);
+
+  var $$ = (HTMLElement.prototype.$$ = function(aQuery) {
+    return this.querySelectorAll(aQuery);
+  }).bind(document);
+
+  $$.forEach = function(nodeList, fun) {
+    Array.prototype.forEach.call(nodeList, fun);
+  }
+
+</script>
+<!-- vim: set fdm=marker: }}} -->
+</body>
+</html>

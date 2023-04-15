@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Marcus Holtz</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Marcus Holtz</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#technical-experience-projects">Technical Experience &amp; Projects</a>
+<ul>
+<li><a href="#systems-administrator">Systems Administrator</a></li>
+<li><a href="#virtualization-administrator">Virtualization Administrator</a></li>
+<li><a href="#homelab">Homelab</a></li>
+</ul></li>
+<li><a href="#presentations">Presentations</a>
+<ul>
+<li><a href="#browser-privacy">Browser Privacy</a></li>
+<li><a href="#opensource-firmware-on-routers">Opensource Firmware on Routers</a></li>
+<li><a href="#mastodon">Mastodon</a></li>
+</ul></li>
+<li><a href="#leadership-activies">Leadership Activies</a>
+<ul>
+<li><a href="#software-freedom-school">Software Freedom School</a></li>
+<li><a href="#carbondale-siu">Carbondale SIU</a></li>
+</ul></li>
+<li><a href="#industry-experience">Industry Experience</a>
+<ul>
+<li><a href="#it-and-web-consultation-freelancing">IT and Web Consultation / Freelancing</a></li>
+<li><a href="#web-development">Web Development</a></li>
+</ul></li>
+<li><a href="#education-and-training">Education and Training</a>
+<ul>
+<li><a href="#soft-skills">Soft Skills</a></li>
+<li><a href="#technical-skills">Technical Skills</a></li>
+<li><a href="#tools">Tools</a></li>
+</ul></li>
+<li><a href="#hobbies">Hobbies</a>
+<ul>
+<li><a href="#references">References</a></li>
+</ul></li>
+</ul>
+</nav>
+<table>
+<thead>
+<tr class="header">
+<th><a href="https://holtzweb.com">holtzweb.com</a></th>
+<th></th>
+<th>Littleton, CO</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(217) 260 - 7188</td>
+<td></td>
+<td>marcusaholtz@gmail.com</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Administrator adept at performing installations and upgrades and providing education to novice users and technical support to resolve complex issues.</strong> # Resume Info</p>
+<p>This resume has been created in a <a href="https://github.com/MarcusHoltz/resume-generator/blob/main/dockerfile">dockerfile</a> by a <a href="https://github.com/MarcusHoltz/resume-generator/blob/main/makefile">makefile</a> and deployed using Github’s <a href="https://github.com/MarcusHoltz/resume-generator/blob/main/.github/workflows/docker-image.yml">CI/CD pipeline</a>. The document is published every 72 hours, with a timestamp at the last page denoting it’s publishing date.</p>
+<ul>
+<li><ul>
+<li>Download this document: <a href="https://github.com/MarcusHoltz/resume-generator/blob/main/output/resume.pdf">https://github.com/MarcusHoltz/resume-generator/blob/main/output/resume.pdf</a></li>
+</ul></li>
+</ul>
+<h1 id="technical-experience-projects">Technical Experience &amp; Projects</h1>
+<h2 id="systems-administrator">Systems Administrator</h2>
+<p><strong>2018 - Present</strong></p>
+<ul>
+<li>• Detailed visual documentation of entire network infrastructure, system architecture, process, and policies.</li>
+<li>• Trained novice users in classes setting and private tutoring</li>
+<li>• Built, configured, tested, and deployed Proxmox high availability ZFS solution featuring incremental 15min snapshotting for disaster recovery using <a href="https://github.com/Corsinvest/cv4pve-autosnap">cv4pve</a> and <a href="https://github.com/jimsalterjrs/sanoid">sanoid</a>.</li>
+<li>• System templates for cloning: CentOS, Ubuntu, FreeBSD, Debian using vmdk, vdi, vhdx, qcow2, &amp; raw file types</li>
+<li>• Created workflows to log and monitor network bandwidth, memory usage, hard drive status, and application uptime using glances, netdata, netflow, &amp; diskover</li>
+</ul>
+<h2 id="virtualization-administrator">Virtualization Administrator</h2>
+<p><strong>2019 - Present</strong></p>
+<ul>
+<li>• Researched cost and risk in leasing at long term off site datacenter.</li>
+<li>• Administered networking in virtualized environments, including virtualized edge routing with pfSense.</li>
+<li>• Designed, analyzed, optimized network infrastructure and troubleshooting networks and systems.</li>
+<li>• System virtualization platforms and tools: Docker, QEMU, KVM.</li>
+<li><ul>
+<li>Docker was used with virt-io’s 9p filesystem to increase io speed</li>
+</ul></li>
+<li>• Deployment and management of headless, bare metal servers in off site datacenter using the model: Debian image &gt; Proxmox baremetal &gt; isolated containers &gt; pfsense routing &gt; haproxy &gt; public internet</li>
+<li>• Configured and deployed SecurityOnion IDS within virtualized infrastructure with added SPAN port</li>
+<li>• Installation of virtual network infrastructure using: VMware ESXi, Proxmox, Hyper-V, and Xen.</li>
+</ul>
+<h2 id="homelab">Homelab</h2>
+<p><strong><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSi5v2k_D79Qt8x_NAfr766UzHH1ddsXiPcn0Epben6a6TGPmGV-ywPLrpR4mmk575Pt3c4XSK-3EI2/pubhtml?gid=1093046237&amp;single=true">My homelab</a> features <a href="https://docs.google.com/spreadsheets/d/1wGjdCJFOPo7gF1jrSo6Y9S_uc8N1rTyLKcYWGcmCcBk/edit?usp=sharing">VLAN network segregation</a>, 6 VMs, ~100 containers, 3 gateways, and multi-tier snapshoting.</strong></p>
+<h1 id="presentations">Presentations</h1>
+<h2 id="browser-privacy">Browser Privacy</h2>
+<ul>
+<li><ul>
+<li>* BLUG (Boulder Linux Users Group) - <a href="https://www.meetup.com/boulder-linux-users-group-blug/events/pqbkrqydcpbnb/">11/10/22</a></li>
+</ul></li>
+<li><ul>
+<li>* SFS (Software Freedom School) - <a href="https://www.meetup.com/sofreeus/events/287663325/">9/3/22</a></li>
+</ul></li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><a href="https://nextcloud.sofree.us/index.php/s/L4cP2rzXZQgBisp">Link to Slides</a> | <a href="https://nextcloud.sofree.us/index.php/s/6ntcY6iyDSnyLBZ">Link to Video</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="opensource-firmware-on-routers">Opensource Firmware on Routers</h2>
+<ul>
+<li><ul>
+<li>* SFS (Software Freedom School) - <a href="https://www.meetup.com/sofreeus/events/292349413/">4/1/23</a></li>
+</ul></li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><a href="https://www.holtzweb.com/openwrt-presentation.html">Link to Slides</a> | <a href="https://nextcloud.sofree.us/index.php/s/WWkasZJR8sT9RXj">Link to Markdown</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="mastodon">Mastodon</h2>
+<ul>
+<li><ul>
+<li>* SFS (Software Freedom School) - <a href="https://www.meetup.com/sofreeus/events/289682203/">12/3/22</a></li>
+</ul></li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><a href="https://nextcloud.sofree.us/index.php/s/rzi7Jr6DmATHyoE">Link to Slides</a> | <a href="https://nextcloud.sofree.us/index.php/s/eEkBPKgTw4aQRDH">Link to Video</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h1 id="leadership-activies">Leadership Activies</h1>
+<h2 id="software-freedom-school">Software Freedom School</h2>
+<ul>
+<li><p>• Software Freedom School board member since March 2023</p></li>
+<li><p>• Maintain open tickets for <a href="https://gitlab.com/sofreeus/sfs-sysops/-/boards">SysOps board</a></p></li>
+<li><p>• Presented at monthly community meetings</p></li>
+<li><p>• Team Member in weekly Linux study group</p></li>
+</ul>
+<h2 id="carbondale-siu">Carbondale SIU</h2>
+<ul>
+<li>• Built and managed Saluki Student Investment Firm website</li>
+</ul>
+<h1 id="industry-experience">Industry Experience</h1>
+<h2 id="it-and-web-consultation-freelancing">IT and Web Consultation / Freelancing</h2>
+<p><strong>Holtzweb, Denver, CO</strong></p>
+<ul>
+<li>• Established clients’ cloud based hosting environments, virtualization, and operations infrastructure.</li>
+<li>• Strategized SEO/SEM campaigns across web presence including blogs, email newsletters, ads &amp; promotions resulting in a 40% increase in face to face traffic and web traffic.</li>
+</ul>
+<h2 id="web-development">Web Development</h2>
+<p><strong>1187, Mayer Networks, Carbondale, IL</strong></p>
+<ul>
+<li>• Created and designed custom website layout/user interfaces</li>
+<li>• Created and designed custom website layout/user interfaces</li>
+<li>• Integrated data from various back-end services and databases – election data, employee database, interactive event map</li>
+<li>• Worked directly with clients to facilitate business and marking needs</li>
+<li>• Executed tests, analyzed data to identify trends and insights using analytics tools and 3rd party optimization tools</li>
+<li>• Ensured all site development follows web standards and ADA compliance for accessibility.</li>
+<li>• Executed SEO-based initiatives, including website analytics and optimization.</li>
+<li>• Fixed broken installs, hacked sites, busted databases, and never-been-updated themes/plugins.</li>
+<li>• Repaired, updated, and redesigned new &amp; existing sites.</li>
+<li>• Designed custom website layout/user interfaces and custom backends to meet project deadline/requirements.</li>
+</ul>
+<h1 id="education-and-training">Education and Training</h1>
+<p><em>BS in Finance</em> Southern Illinois University</p>
+<p><em>Linux Foundation Certified System Administrator (LFCS): expected June 24th</em></p>
+<h2 id="soft-skills">Soft Skills</h2>
+<p>Collaboration, Problem Solving, Communication, Critical Thinking, Creative Thinking, Active Learning, Adaptability, Leadership, Perceptiveness, Decision Making</p>
+<h2 id="technical-skills">Technical Skills</h2>
+<p>Operating Systems, Build and Release, Networking Protocols, Deployment, Source Control, Containers, Configuration Management, Programming, Monitoring</p>
+<h2 id="tools">Tools</h2>
+<p>Unix/Linux, Jenkins, GIT, Salt/Ansible, Puppet/Chef, AWS/VMWare, Docker, Apache/Nginx, Python/Perl, Zabbix/Sensu</p>
+<p><strong>Web Development Tools</strong></p>
+<ul>
+<li><p>• CMS: WordPress, Drupal, DNN, Joomla</p></li>
+<li><p>• SEO: Google Analytics, Piwik, MOZ, SEMRush, Megalytic</p></li>
+<li><p>• Design: Adobe Creative Cloud: After Effects, Illustrator, Photoshop</p></li>
+<li><p>• Webserver: Apache, Nginx</p></li>
+<li><p>• Database: MySQL,Postgres, MariaDB, Redis, MongoDB</p></li>
+<li><p>• CSS Boilerplate: Bootstrap, Foundation, Tailwind</p></li>
+<li><p>• Cloud: Azure, AWS, DigitalOcean, Cloudflare</p></li>
+</ul>
+<h1 id="hobbies">Hobbies</h1>
+<ul>
+<li><ul>
+<li>Making mixtapes, Coffee, Beer, My 2 Year Old</li>
+</ul></li>
+<li><ul>
+<li>LoRA Radio, Network Security, Homelab</li>
+</ul></li>
+</ul>
+<h2 id="references">References</h2>
+<p>References: Available upon request.</p>
+</body>
+</html>
+<style>
+/* Do not show subsubsections in menu: */
+
+nav li li li {display: none !important; }
+
+nav {
+	display: inline-block;
+    	text-align:center;
+	margin: 0px auto;
+}
+
+nav ul {
+	padding: 0;
+	margin: 0 auto;
+}
+
+nav a {
+	padding: 10px;
+	background: #111;
+	border-radius: 20px;
+}
+
+nav li {
+	list-style: none;
+	position: relative;
+	float: left;
+}
+
+nav a {
+	display: block;
+	width: 100px;
+}
+
+nav ul ul {
+	padding: 0px;
+	margin: 0px;
+	position: absolute;
+	display: none;
+}
+
+nav li:hover ul {
+	display: block;
+}
+
+nav li:hover a {
+	background-color: #222;
+}
+
+nav li:hover a:hover {
+	background-color: #333;
+}
+
+html {
+	margin-top: 2.5em;
+	padding-bottom: 20em;
+	font-size: 100%;
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+
+body {
+	border-radius: 20px;
+	font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+	font-size: 12px;
+	line-height: 1.7;
+	padding: .125em 1em 0.5em 1em;
+	margin: auto;
+	width: 1000px;
+	font-size: 16px;
+	color: #ddd;
+	background: black;
+}
+
+a {
+color: teal;
+}
+
+a:hover {
+  color: lightblue;
+}
+
+a:active {
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+*::-moz-selection {
+  background: rgba(255, 255, 0, 0.3);
+}
+
+*::selection {
+  background: rgba(255, 255, 0, 0.3);
+}
+
+a::-moz-selection {
+  background: rgba(255, 255, 0, 0.3);
+}
+
+a::selection {
+  background: rgba(255, 255, 0, 0.3);
+}
+
+p {
+  margin: 1em 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 100%;
+  font-weight: normal;
+}
+
+h4, h5, h6 {
+  font-weight: bold;
+}
+
+.title {
+	font-size: 3.5em;
+	text-align: center;
+}
+
+h1 {
+	font-size: xx-large;
+}
+
+h1:after {
+	content: " ";
+	display: block;
+	border: 1px solid white;
+}
+
+h2 {
+  font-size: x-large;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 0.9em;
+}
+
+blockquote {
+  margin: 0;
+  padding-left: 3em;
+  border-left: 0.5em #EEE solid;
+}
+
+hr {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #eee;
+  margin: 1em 0;
+  padding: 0;
+}
+
+pre, code, kbd, samp {
+  font-family: monospace, monospace;
+  _font-family: 'courier new', monospace;
+  font-size: 0.98em;
+}
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+ins {
+  background: #ff9;
+  text-decoration: none;
+}
+
+mark {
+  background: #ff0;
+  font-style: italic;
+  font-weight: bold;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+ul, ol {
+  margin: 1em 0;
+  padding: 0 0 0 2em;
+}
+
+li p:last-child {
+  margin-bottom: 0;
+}
+
+ul ul, ol ol {
+  margin: .3em 0;
+}
+
+dl {
+	padding: 0px;
+	margin: 0px;
+}
+
+dd {
+  	font-size: small;
+}
+
+dl dd:last-of-type {
+	display: none;
+}
+
+dl:hover dd:last-of-type {
+	display: block;
+}
+
+ul li { list-style-type: none; } 
+</style>
