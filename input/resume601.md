@@ -14,6 +14,8 @@ classoption: "12pt"
 (217) 260 - 7188    | |  marcusaholtz@gmail.com
 
 **Administrator adept at performing installations and upgrades and providing education to novice users and technical support to resolve complex issues.**
+
+
 # Resume Info
 
 This resume has been created in a [dockerfile](https://github.com/MarcusHoltz/resume-generator/blob/main/dockerfile) by a [makefile](https://github.com/MarcusHoltz/resume-generator/blob/main/makefile) and deployed using Github's [CI/CD pipeline](https://github.com/MarcusHoltz/resume-generator/blob/main/.github/workflows/docker-image.yml). The document is published every 72 hours, with a timestamp at the last page denoting it's publishing date.
