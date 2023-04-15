@@ -109,12 +109,6 @@ jobs:
           cat README.md
           echo -e "## The current date:  " >> README.md
           echo -e " $(date -d '-6 hour' +"%m/%d/%Y") " >> README.md
-          echo -e "   " >> README.md
-          echo -e "  " >> README.md
-          echo -e "  " >> README.md
-          echo -e " TIME PUBLISHED IS ALSO: " >> README.md
-          echo -e "  " >> README.md
-          echo -e " $(date -d '-6 hour' +"%I:%M.%S") " >> README.md
           echo -e "  " >> README.md
           echo -e "  " >> README.md
           cat README.md
