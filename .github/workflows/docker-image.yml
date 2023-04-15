@@ -1,0 +1,134 @@
+name: Docker Image CI
+#-------------------------------------------------------------------#
+##  ##  ##          DONT FORGET TO CHANGE:                 ##  ##  ## 
+##  ##  ##    settings > actions > workflow permissions    ##  ##  ##
+#-------------------------------------------------------------------# 
+on:
+  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+  schedule:
+    # The shortest interval you can run scheduled workflows is once every 5 minutes.
+    # Note: The schedule event can be delayed during periods of high loads of GitHub Actions workflow runs.
+    # High load times include the start of every hour.
+    # To decrease the chance of delay, schedule your workflow to run at a different time of the hour.
+    # Prime numbers are a good example for time of the hour: 3, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53
+    # Example: every 5 minutes.
+    # - cron: '*/5 * * * *'
+    # Currently: every day at 10:23am UTC.
+    - cron: "23 10 * * *"
+    # - cron: "*/20 * * * *"
+
+#on:
+#  push:
+#    branches: [ "main" ]
+#  pull_request:
+#    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test initial directory contents
+        run: |
+          pwd
+          ls -Rl
+      - name: Build the Docker image
+        run: docker build --tag ubuntu22.04-pandoc --file dockerfile .
+      - name: Build the Docker container
+        run: docker compose --file compose.yml up --detach
+      - name: Run make inside the container
+        run: docker exec -t pandoc-resume-generator make
+      - name: Show me what happened
+        run: |
+          pwd
+          ls -al output
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: "Completed_Resumes"
+          path: output/
+
+      - name: Clear README with intro text
+        run: |
+          cat README.md
+          echo -e "# Welcome to [Marcus Holtz](https://github.com/MarcusHoltz)' Resume's CI/CD" > README.md
+          echo -e "![workflow](https://github.com/MarcusHoltz/resume-generator/actions/workflows/docker-image.yml/badge.svg)  ![github](https://badgen.net/badge/icon/github?icon=github&label)  ![docker](https://badgen.net/badge/icon/docker?icon=docker&label)" >> README.md
+          echo -e " " >> README.md
+          echo -e " " >> README.md
+          echo -e "* * *" >> README.md
+          echo -e "## Introduction" >> README.md
+          echo -e "This repository keeps my resume **up to date**. Builds are done **daily**." >> README.md
+          echo -e "  " >> README.md
+          echo -e "You can find **[the most recent builds](output/)** of my resume." >> README.md
+          echo -e " " >> README.md
+          echo -e " " >> README.md
+          echo -e "* * *" >> README.md
+          echo -e "## Usage" >> README.md
+          echo -e "### Github Actions" >> README.md
+          echo -e "If you want Github Actions to run this docker container and update the repository," >> README.md
+          echo -e "you must first enable: " >> README.md
+          echo -e "  " >> README.md
+          echo -e " \`settings > actions > workflow permissions\` " >> README.md
+          echo -e "  " >> README.md
+          echo -e "Be sure to change information at the bottom of \`.github/workflows/docker-image.yml\`" >> README.md
+          echo -e "  " >> README.md
+          echo -e "  " >> README.md
+          echo -e "### Docker auto-generate resumes" >> README.md
+          echo -e "If you would like to run this locally on your machine (\`docker compose up --build -d\`), first clone or download the repository." >> README.md
+          echo -e " " >> README.md
+          echo -e "Edit the \`compose.yml\` to uncomment the \`command\` **or** \`entrypoint\`." >> README.md
+          echo -e "With that change, when you run the container it will generate documents in the \`output\` folder for any markdown files in the \`input\` folder." >> README.md
+          echo -e "  " >> README.md
+          echo -e "Then, edit \`dockerfile\`. At the bottom of the file, you will see two commented lines:" >> README.md
+          echo -e " " >> README.md
+          echo -e "\`# RUN useradd --user-group --create-home --shell /bin/false app\`" >> README.md
+          echo -e "  " >> README.md
+          echo -e "\`# USER app\`" >> README.md
+          echo -e " " >> README.md
+          echo -e "Uncomment these lines to have the output files created as a non-root user." >> README.md
+          echo -e " " >> README.md
+          echo -e " " >> README.md
+          echo -e "* * *" >> README.md
+          echo -e "## References" >> README.md
+          echo -e "[Pandoc](https://github.com/pandoc/dockerfiles)" >> README.md
+          echo -e " " >> README.md
+          echo -e "[Inspiration](https://github.com/mszep/pandoc_resume)" >> README.md
+          echo -e " " >> README.md
+          echo -e "[LaTeX template](https://github.com/LukeSmithxyz/md-website-cv)" >> README.md
+          echo -e " " >> README.md
+          echo -e " " >> README.md
+          echo -e " " >> README.md
+          echo -e " " >> README.md
+         
+
+      - name:
+          Publish date to README.md
+          # NOTE: UTC is adjusted to local MNT time. Please correct based on local standards.
+        run: |
+          cat README.md
+          echo -e "## The current date:  " >> README.md
+          echo -e " $(date -d '-6 hour' +"%m/%d/%Y") " >> README.md
+          echo -e "   " >> README.md
+          echo -e "  " >> README.md
+          echo -e "  " >> README.md
+          echo -e " TIME PUBLISHED IS ALSO: " >> README.md
+          echo -e "  " >> README.md
+          echo -e " $(date -d '-6 hour' +"%I:%M.%S") " >> README.md
+          echo -e "  " >> README.md
+          echo -e "  " >> README.md
+          cat README.md
+
+      - name: Push to repository
+        run: |
+          git config --global user.name "MarcusHoltz"
+          git config --global user.email "130122354+MarcusHoltz@users.noreply.github.com"
+          now=$(date)
+          git add -A
+          git commit -m "Auto Push on $now"
+          git push
+
+      - name: Show me contents before quit
+        run: |
+          pwd
+          ls -Rl
