@@ -1,0 +1,25 @@
+
+version: '3'
+
+name: "pandoc-resume-generator"
+
+services:
+
+  pandoc-resume-generator:
+    build:
+      context: .
+      dockerfile: ./dockerfile
+#####################################################################
+## If you intend to run this container and have it automatically   ##
+##   spit out the converted documents, you will need to uncomment  ##
+##   one of these lines, however you wish to accomplish this.      ##
+#####################################################################
+#    command: make
+#    entrypoint: /home/app/entrypoint.sh
+    container_name: pandoc-resume-generator
+    image: ubuntu22.04-pandoc
+    tty: true
+    volumes:
+      - .:/home/app
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
