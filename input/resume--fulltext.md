@@ -111,7 +111,6 @@ This resume has been created in a **[dockerfile](https://github.com/MarcusHoltz/
 
 ## Browser Privacy
 **The goal of this talk is to put you in control.**
-
 Understand what data is collected by the tools you use and decide if you want to share it. Then use methods provided here to opt-in or opt-out.
 
  - \* BLUG (Boulder Linux Users Group) - [11/10/22](https://www.meetup.com/boulder-linux-users-group-blug/events/pqbkrqydcpbnb/)
@@ -224,5 +223,7 @@ Linux, bash scripting, Python, HTML, CSS, JavaScript, MySQL, Apache, Nginx, HAPr
 - • CSS Boilerplate: Bootstrap, Foundation, Tailwind
 
 - • Cloud: Azure, AWS, DigitalOcean, Cloudflare
+
+
 
 
