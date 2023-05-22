@@ -52,7 +52,7 @@ This resume has been created in a **[dockerfile](https://github.com/MarcusHoltz/
 
 
 ## DevOps
-- • Ansible, Cloud infrastructure (AWS prefered), KVM, Terraform, Helm
+- • Knowledge of cloud infrastructure (AWS, Azure, GCP, Oracle) & orchestration (Chef, Puppet, Ansible, SaltStack, Terraform, Helm, OpenStack).
 - • Experience with the core AWS services, including ALB, ELB, EC2, RDS, and S3.
 - • A proactive approach to spotting problems, areas for improvement, and performance bottlenecks.
 
