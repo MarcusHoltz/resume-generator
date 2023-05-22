@@ -27,6 +27,11 @@ $endif$
 
 
 
+% Stopping all hyphenation:
+% https://texfaq.org/FAQ-hyphoff
+\usepackage[none]{hyphenat}
+
+
 % How to use the package datetime: 
 % https://ctan.org/pkg/datetime?lang=en
 \usepackage{datetime}
@@ -36,8 +41,20 @@ $endif$
 \usepackage{coffeestains}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% ADJUST MARGINS ACROSS ENTIRE DOCUMENT %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[a4paper,
+             left=.3in,
+            right=.4in,
+            top=.1in,
+            bottom=.1in,
+            footskip=.25in]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% ADJUST MARGINS ACROSS ENTIRE DOCUMENT %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[margin=.5in]{geometry}
+
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{metalogo}
@@ -69,12 +86,15 @@ $endif$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% MOST OF THE FORMATTING FOR THE HEADERS ARE DONE RIGHT HERE %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Custom section spacing and formatting
-\titleformat{\part}{\Huge\scshape\filcenter}{}{3em}{}
+%% titlerule is the height of the H1 horizontal ruler
 \titleformat{\section}{\Large\bf\raggedright}{}{1em}{}[{\titlerule[2pt]}]
+%% Padding on the {top}{bottom} respectivly for the H1 markdown tags
 \titlespacing{\section}{0pt}{3pt}{7pt}
-\titleformat{\subsection}{\large\bfseries\centering}{}{0em}{\underline}%[\rule{3cm}{.2pt}]
+%% Padding on the {top}{bottom} respectivly for the H2 markdown tags
 \titlespacing{\subsection}{0pt}{7pt}{7pt}
+%% not sure what this section changes
+\titleformat{\subsection}{\large\bfseries\centering}{}{0em}{\underline}%[\rule{3cm}{.2pt}]
+\titleformat{\part}{\Huge\scshape\filcenter}{}{3em}{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% MOST OF THE FORMATTING FOR THE HEADERS ARE DONE RIGHT HERE %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -648,17 +668,22 @@ $include-after$
 $endfor$
 
 
-Last Built on:
+ 
+\hfill\break 
+\hfill\break 
+\noindent\rule{4in}{0.4pt}
+
+This resume last built on:
 \today
 
 %%% ALTERNATIVE POSITION FARTHER UP THE PAGE
-%\coffeestainA{0.03}{1.15}{-25}{8cm}{1.3cm}
-%\coffeestainC{0.02}{.6}{0}{8cm}{4 cm}
+% \coffeestainA{0.03}{1.15}{-25}{8cm}{1.3cm}
+% \coffeestainC{0.02}{.6}{0}{8cm}{4 cm}
 %%% ALTERNATIVE POSITION FARTHER UP THE PAGE
 
 %%% ALTERNATIVE POSITION AT THE BOTTOM OF THE PAGE
-%\coffeestainA{0.03}{1.15}{-25}{8cm}{-255pt}
-%\coffeestainC{.07}{.6}{0}{8cm}{-168pt}
+% \coffeestainA{0.03}{1.15}{-25}{8cm}{-255pt}
+% \coffeestainC{.07}{.6}{0}{8cm}{-168pt}
 %%% ALTERNATIVE POSITION AT THE BOTTOM OF THE PAGE
 
 \end{document}
