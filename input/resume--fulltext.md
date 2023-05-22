@@ -141,29 +141,16 @@ Mastodon is software for running different, connected social networking services
 
 
 
-# Leadership Activies
+# Industry Experience
 
 
-## Software Freedom School
-
+## Leadership Activies
+**Software Freedom School, Littleton, CO** - **2022 - Present**
 
 - • Software Freedom School board member since March 2023
-
 - • Maintain open tickets for [SysOps board](https://gitlab.com/sofreeus/sfs-sysops/-/boards)
-
 - • Presented at monthly community meetings
-
 - • Team Member in weekly Linux study group
-
-
-## Carbondale SIU
-
-- • Built and managed Saluki Student Investment Firm website
-
-
-
-
-# Industry Experience
 
 
 ## IT and Web Consultation / Freelancing
@@ -172,14 +159,13 @@ Mastodon is software for running different, connected social networking services
 **Holtzweb, Denver, CO**  -  **2019 - Present**
 
 - • Established clients’ cloud based hosting environments, virtualization, and operations infrastructure.
-- • Strategized SEO/SEM campaigns across web presence including blogs, email newsletters, ads & promotions resulting in a large increase in face to face traffic and web traffic.
-
+- • Strategized SEO/SEM campaigns across web presence including blogs, email newsletters, ads & promotions resulting in a 40% increase in face to face traffic and web traffic.
 
 
 ## Web Development
 
 
-**1187, Mayer Networks, Carbondale, IL**  -  **2014 - 2016**
+**Highline Ideas, 1187, Mayer Networks, Carbondale, IL**  -  **2013 - 2017**
 
 - • Created and designed custom website layout/user interfaces
 - • Integrated data from various back-end services and databases
