@@ -7,7 +7,7 @@ classoption: "12pt"
 
 [holtzweb.com](https://holtzweb.com)       | |  Littleton, CO 
 --------- | -------- | --------
-(217) 260 - 7188    | |  marcusaholtz@gmail.com
+<!-- 1086303594 * 2   OR   46611.2345685029 ^ 2 --> (720) 445-5887    | |  marcusaholtz@gmail.com
 
 
 **Systems Engineer in Linux, virtualization, networking, containers, automation, and development.**
