@@ -5,12 +5,9 @@
 * * *
 ## Introduction
 This repository keeps my resume **up to date**. Builds are done **daily**.
-
-👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
   
 You can find **[the most recent builds](output/)** of my resume.
-
-👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆
+ 
  
 * * *
 ## Usage
@@ -50,6 +47,6 @@ Uncomment these lines to have the output files created as a non-root user.
  
  
 ## The current date:  
- 11/25/2023 
+ 11/26/2023 
   
   
