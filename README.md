@@ -5,9 +5,12 @@
 * * *
 ## Introduction
 This repository keeps my resume **up to date**. Builds are done **daily**.
+
+👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
   
 You can find **[the most recent builds](output/)** of my resume.
- 
+
+👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆
  
 * * *
 ## Usage
