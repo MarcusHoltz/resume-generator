@@ -1,12 +1,7 @@
 # Welcome to [Marcus Holtz](https://github.com/MarcusHoltz)' Resume's CI/CD
-
 * * *
-
 ![Daily resume generator with LaTeX and Pandoc](https://raw.githubusercontent.com/MarcusHoltz/marcusholtz.github.io/refs/heads/main/assets/img/header/header--devops--resume-generator.jpg "Generate a resume, daily, forever!")
- 
 * * *
-
-
 ## Introduction
 ![workflow](https://github.com/MarcusHoltz/resume-generator/actions/workflows/docker-image.yml/badge.svg)  ![github](https://badgen.net/badge/icon/github?icon=github&label)  ![docker](https://badgen.net/badge/icon/docker?icon=docker&label)
  
@@ -53,6 +48,6 @@ Uncomment these lines to have the output files created as a non-root user.
  
  
 ## The current date:  
- 04/20/2026 
+ 04/21/2026 
   
   
