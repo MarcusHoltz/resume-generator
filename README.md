@@ -17,6 +17,10 @@ You can find **[the most recent builds](output/)** of my resume.
 * * *
 
 ## Usage
+
+
+* * *
+
 ### Github Actions
 If you want Github Actions to run this docker container and update the repository,
 you must first enable: 
@@ -24,8 +28,10 @@ you must first enable:
  `settings > actions > workflow permissions` 
   
 Be sure to change information at the bottom of `.github/workflows/docker-image.yml`
-  
-  
+
+
+* * *
+
 ### Docker auto-generate resumes
 If you would like to run this locally on your machine (`docker compose up --build -d`), first clone or download the repository.
  
@@ -43,12 +49,12 @@ Uncomment these lines to have the output files created as a non-root user.
 
 * * *
 
-## Required Setup
+### GitLab Setup
 > **This pipeline will fail to push without a Project Access Token.**
 > GitLab CI job tokens are read-only by default (GitLab ≥ 15.9) and cannot
 > write commits back to the repository. Two one-time steps are required.
 
-### Step 1 — Create a Project Access Token
+#### Step 1 — Create a Project Access Token
 1. Go to **Settings > Access Tokens**
 2. Fill in the form:
    - Name: `gitlab-ci-push`
@@ -56,7 +62,7 @@ Uncomment these lines to have the output files created as a non-root user.
    - Scopes: **write_repository**
 3. Click **Create project access token** and copy the value immediately — it is shown only once.
 
-### Step 2 — Store the token as a masked CI/CD variable
+#### Step 2 — Store the token as a masked CI/CD variable
 1. Go to **Settings > CI/CD > Variables**
 2. Click **Add variable** and fill in:
    - Key: `PROJECT_ACCESS_TOKEN`
