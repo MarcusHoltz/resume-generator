@@ -51,8 +51,7 @@ Uncomment these lines to have the output files created as a non-root user.
 
 ### GitLab Setup
 > **This pipeline will fail to push without a Project Access Token.**
-> GitLab CI job tokens are read-only by default (GitLab ≥ 15.9) and cannot
-> write commits back to the repository. Two one-time steps are required.
+> GitLab CI job tokens are required. Two steps below are required.
 
 #### Step 1 — Create a Project Access Token
 1. Go to **Settings > Access Tokens**
