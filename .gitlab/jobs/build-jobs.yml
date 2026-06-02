@@ -1,0 +1,133 @@
+# ============================================================
+# Build & Compile Jobs
+# ============================================================
+# Two jobs, two separate concerns:
+#
+#   build_image   (stage: build)
+#     Builds the project's Dockerfile into a Docker image and
+#     pushes it to GitLab's built-in Container Registry. The
+#     image bundles every tool needed to compile resumes:
+#     pandoc, XeTeX, all LaTeX packages, and the required fonts.
+#     Building once and storing the image means the heavy
+#     apt-get installs only happen when the Dockerfile changes.
+#
+#   compile_resume   (stage: compile)
+#     Uses the image pushed by build_image as the job's own
+#     Docker image. GitLab's runner pulls it from the registry,
+#     clones the repo into the container's workspace, and runs
+#     `make compile` -- no volume mounts, no docker exec tricks.
+#     The image provides the tools; the runner provides the files.
+#
+# Why not one DinD job that does both?
+#     Splitting keeps the stages independent and readable.
+#     compile_resume has no Docker daemon and no DinD overhead --
+#     it looks exactly like any other CI job that just runs a command.
+# NICE!
+# ============================================================
+
+# ------------------------------------------------------------
+# Stage 1: Build the Docker image and push to Container Registry
+#
+# DinD (Docker-in-Docker) lets us run Docker commands inside a
+# CI job. The `docker:23.0.1-dind` service starts a Docker
+# daemon that the job container talks to over TLS.
+# DOCKER_TLS_CERTDIR tells the daemon and client where to find
+# the shared TLS certificates -- required for secure DinD.
+#
+# $CI_REGISTRY_IMAGE is a predefined GitLab CI variable set
+# automatically to the project's Container Registry path, e.g.:
+#   registry.gitlab.com/username/resume-generator
+# No configuration needed -- it just works.
+#
+# Two tags are pushed:
+#   :latest           -- always points to the most recent build
+#   :$CI_COMMIT_SHORT_SHA -- immutable tag tied to this exact
+#                         commit; useful if you ever need to
+#                         re-run a specific version of the image
+# ------------------------------------------------------------
+build_image:
+  stage: build
+  image: docker:23.0.1
+  services:
+    - docker:23.0.1-dind
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+    # DOCKER_BUILDKIT enables BuildKit, Docker's modern build engine.
+    # It provides better layer caching, parallel build steps, and
+    # cleaner output. Enabled by default in Docker 23+, but setting
+    # it explicitly makes the intent clear.
+    DOCKER_BUILDKIT: "1"
+  before_script:
+    - docker info
+    - echo "=== Logging in to GitLab Container Registry ==="
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+  script:
+    - echo "=== Building Docker image from project Dockerfile ==="
+    - |
+      docker build \
+        --tag "$CI_REGISTRY_IMAGE:latest" \
+        --tag "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA" \
+        --file dockerfile .
+    - echo "=== Pushing both tags to Container Registry ==="
+    - docker push "$CI_REGISTRY_IMAGE:latest"
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA"
+    - 'echo "=== Image pushed: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA ==="'
+  # Retry up to 2 times on failure -- Docker registry network
+  # operations are the most common source of transient CI errors.
+  retry: 2
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: on_success
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: on_success
+    - when: never
+
+
+# ------------------------------------------------------------
+# Stage 2: Render all Markdown input files to PDF, HTML, DOCX
+#
+# `image: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA` pulls the
+# exact image built by build_image in this pipeline run.
+# Using the SHA tag (instead of :latest) guarantees we are
+# running the image from this commit, not one pushed by a
+# concurrent pipeline on another branch.
+#
+# `needs: [build_image]` creates a DAG dependency. Without it,
+# this job would wait for ALL jobs in the build stage to finish.
+# With it, compile_resume starts the moment build_image succeeds,
+# even if other build-stage jobs are still running.
+#
+# GitLab's runner sets the working directory to $CI_PROJECT_DIR
+# (the cloned repo root), overriding the image's WORKDIR.
+# So `make compile` runs from the repo root and finds input/,
+# styles/, output/, and the makefile exactly where expected.
+#
+# GIT_STRATEGY: fetch (default) clones or fetches the repo into
+# the container. This is what gives the job access to the source
+# files -- the image only provides the tools.
+# ------------------------------------------------------------
+compile_resume:
+  stage: compile
+  image: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+  variables:
+    GIT_STRATEGY: fetch
+  script:
+    - echo "=== Compiling all resumes from input/ directory ==="
+    - make compile
+    - echo "=== Generated resume files ==="
+    - ls -la output/
+  artifacts:
+    # Artifact name includes the commit SHA so it is identifiable
+    # in the GitLab UI under Build > Pipelines > [job] > Artifacts.
+    name: "resume-output-$CI_COMMIT_SHORT_SHA"
+    paths:
+      - output/
+    expire_in: 1 week
+  needs:
+    - build_image
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: on_success
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: on_success
+    - when: never
