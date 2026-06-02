@@ -1,0 +1,61 @@
+# ============================================================
+# Workflow Rules Configuration
+# ============================================================
+# workflow: rules control whether a pipeline is created at all.
+# They are evaluated before any job rules.
+#
+# This pipeline only starts on:
+#   "web"      -- manually triggered via Build > Pipelines > Run pipeline
+#   "schedule" -- triggered by a configured GitLab Schedule (cron)
+#
+# Push triggers are intentionally excluded for two reasons:
+#   1. This is a daily document build, not a continuous integration
+#      pipeline -- it does not need to run on every code push.
+#   2. The commit_output job pushes a commit back to the repo.
+#      Without this restriction, that push would re-trigger the
+#      pipeline even though commit messages contain [skip ci].
+#      Limiting sources here is the cleaner, more explicit guard.
+#
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web" || $CI_PIPELINE_SOURCE == "schedule"'
+
+
+# ============================================================
+# Main GitLab CI/CD Pipeline Configuration
+# INCLUDE ALL FILES - Jobs, stages, and variables
+# ============================================================
+# Includes are processed in order. Variables defined in earlier
+# files are available to jobs in later files.
+#
+include:
+  - local: '.gitlab/variables-git.yml'        # GIT VARIABLES  -- author identity for CI commits
+  - local: '.gitlab/jobs/build-jobs.yml'      # BUILD + COMPILE -- Docker image build and resume render
+  - local: '.gitlab/jobs/commit-jobs.yml'     # COMMIT OUTPUT  -- push generated files back to repo
+
+
+# ============================================================
+# PIPELINE STAGES -- defines execution order
+# ============================================================
+# Jobs in earlier stages must complete successfully before
+# the next stage begins. The exception is jobs that declare
+# `needs:`, which creates a DAG and can run out of stage order.
+#
+stages:
+  - build    # Build the pandoc/LaTeX Docker image, push to Container Registry
+  - compile  # Run make compile inside that image to render all resumes
+  - commit   # Update README with build timestamp and push all generated files
+
+
+# ============================================================
+# VARIABLE OVERRIDES (OPTIONAL)
+# Override variables from any included file here
+# ============================================================
+###########
+# Example #
+###########
+#
+# variables:
+#   GIT_USER_NAME: "my-custom-bot-name"
+#
+#
