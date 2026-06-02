@@ -1,0 +1,54 @@
+# ============================================================
+# GitLab CI Git Identity Variables
+# ============================================================
+# These are FALLBACK values only.
+#
+# The commit_output job uses GitLab's predefined variables first:
+#   $GITLAB_USER_EMAIL  -- the triggering user's GitLab email
+#   $GITLAB_USER_NAME   -- the triggering user's GitLab display name
+#
+# For scheduled pipelines, "triggering user" is whoever created
+# the schedule. For manual triggers, it is whoever clicked
+# "Run pipeline." These are always set automatically by GitLab --
+# no configuration required.
+#
+# The variables below only activate if you explicitly set them
+# in Settings > CI/CD > Variables to override the triggering
+# user (e.g., to commit as a dedicated bot identity).
+#
+# The `value:` key sets the default shown in the GitLab UI.
+# The `description:` key appears as helper text in the
+# "Run Pipeline" form when triggering a pipeline manually.
+# ============================================================
+#
+# ============================================================
+# Required secret variable (NOT declared here)
+# ============================================================
+# PROJECT_ACCESS_TOKEN must be created manually and stored as a
+# masked CI/CD variable in Settings > CI/CD > Variables.
+#
+# Why it cannot be declared below:
+#   Variables declared in YAML (with a `value:` key) are shown in
+#   the GitLab UI in plain text and are visible to anyone who can
+#   trigger a pipeline. Secrets must be added through the UI so
+#   they are masked in job logs and never stored in the repository.
+#
+# How to create it:
+#   1. Settings > Access Tokens
+#        Name: gitlab-ci-push   Role: Maintainer
+#        Scopes: write_repository   → copy the token value
+#   2. Settings > CI/CD > Variables
+#        Key:   PROJECT_ACCESS_TOKEN
+#        Value: <paste token>
+#        Mask variable: yes
+#        Expand variable reference: no
+# ============================================================
+
+variables:
+  GIT_USER_EMAIL:
+    value: "noreply@gitlab.com"
+    description: "Override git author email. Leave as-is to use the triggering user's GitLab email automatically."
+
+  GIT_USER_NAME:
+    value: "GitLab CI"
+    description: "Override git author name. Leave as-is to use the triggering user's GitLab display name automatically."
