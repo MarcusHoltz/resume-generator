@@ -7,7 +7,7 @@
 * * *
 
 ## Introduction
-![workflow](https://github.com/MarcusHoltz/resume-generator/actions/workflows/docker-image.yml/badge.svg)  ![github](https://badgen.net/badge/icon/github?icon=github&label)  ![docker](https://badgen.net/badge/icon/docker?icon=docker&label)
+![workflow](https://github.com/MarcusHoltz/resume-generator/actions/workflows/docker-image.yml/badge.svg)  ![github](https://badgen.net/badge/icon/github?icon=github&label)  ![gitlab](https://badgen.net/badge/icon/gitlab?icon=gitlab&label)  ![docker](https://badgen.net/badge/icon/docker?icon=docker&label)
  
 This repository keeps my resume **up to date**. Builds are done **daily**.
   
