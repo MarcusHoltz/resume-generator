@@ -1,7 +1,11 @@
 # Welcome to [Marcus Holtz](https://github.com/MarcusHoltz)' Resume's CI/CD
+
 * * *
+
 ![Daily resume generator with LaTeX and Pandoc](https://raw.githubusercontent.com/MarcusHoltz/marcusholtz.github.io/refs/heads/main/assets/img/header/header--devops--resume-generator.jpg "Generate a resume, daily, forever!")
+
 * * *
+
 ## Introduction
 ![workflow](https://github.com/MarcusHoltz/resume-generator/actions/workflows/docker-image.yml/badge.svg)  ![github](https://badgen.net/badge/icon/github?icon=github&label)  ![docker](https://badgen.net/badge/icon/docker?icon=docker&label)
  
@@ -9,8 +13,9 @@ This repository keeps my resume **up to date**. Builds are done **daily**.
   
 You can find **[the most recent builds](output/)** of my resume.
  
- 
+
 * * *
+
 ## Usage
 ### Github Actions
 If you want Github Actions to run this docker container and update the repository,
@@ -34,9 +39,39 @@ Then, edit `dockerfile`. At the bottom of the file, you will see two commented l
 `# USER app`
  
 Uncomment these lines to have the output files created as a non-root user.
- 
+
+
+* * *
+
+## Required Setup
+> **This pipeline will fail to push without a Project Access Token.**
+> GitLab CI job tokens are read-only by default (GitLab ≥ 15.9) and cannot
+> write commits back to the repository. Two one-time steps are required.
+
+### Step 1 — Create a Project Access Token
+1. Go to **Settings > Access Tokens**
+2. Fill in the form:
+   - Name: `gitlab-ci-push`
+   - Role: **Maintainer**
+   - Scopes: **write_repository**
+3. Click **Create project access token** and copy the value immediately — it is shown only once.
+
+### Step 2 — Store the token as a masked CI/CD variable
+1. Go to **Settings > CI/CD > Variables**
+2. Click **Add variable** and fill in:
+   - Key: `PROJECT_ACCESS_TOKEN`
+   - Value: *(paste the token from Step 1)*
+   - **Mask variable: on** — keeps the value out of job logs
+   - Expand variable reference: off
+3. Save.
+
+The pipeline's commit job reads `$PROJECT_ACCESS_TOKEN` at runtime to authenticate the `git push`.
+Without it, the push step exits with a 403 and the job fails.
+
+
  
 * * *
+
 ## References
 [Pandoc](https://github.com/pandoc/dockerfiles)
  
@@ -48,6 +83,6 @@ Uncomment these lines to have the output files created as a non-root user.
  
  
 ## The current date:  
- 06/01/2026 
+ 05/31/2026 
   
   
