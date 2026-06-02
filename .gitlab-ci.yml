@@ -1,0 +1,52 @@
+# ============================================================
+# Resume Generator - GitLab CI/CD Pipeline
+# ============================================================
+# This file is the pipeline entry point. It contains only an
+# include directive -- all jobs, stages, and variables live in
+# .gitlab/ so each concern is isolated and easy to find.
+#
+# Pipeline flow:  build_image --> compile_resume --> commit_output
+#
+#
+# ============================================================
+# HOW TO SET UP SCHEDULED (CRON) RUNS:
+# ============================================================
+# GitLab does NOT read cron schedules from this YAML file.
+# You must create the schedule manually in the GitLab UI:
+#
+#   1. Go to your project in GitLab
+#   2. Navigate to:  Build > Schedules
+#   3. Click "New schedule"
+#   4. Fill in the form:
+#      - Description:      "Daily Resume Build"
+#      - Interval Pattern: 23 10 * * *
+#        (Daily at 10:23 AM UTC -- same as the GitHub Actions schedule.
+#         Non-round times like :23 reduce queue delays at the top of the hour.)
+#      - Target Branch:    main
+#      - Variables:        (none required)
+#   5. Save and activate the schedule
+#
+# To trigger manually: Build > Pipelines > Run pipeline
+#
+#
+# ============================================================
+# ONE-TIME PROJECT SETUP (before first run):
+# ============================================================
+#
+# 1. Container Registry -- enabled by default on GitLab.com:
+#    Settings > General > Visibility, features, permissions
+#    > Container Registry  [toggle on]
+#
+#    The build_image job pushes to this registry. GitLab
+#    automatically provides $CI_REGISTRY, $CI_REGISTRY_USER,
+#    $CI_REGISTRY_PASSWORD, and $CI_REGISTRY_IMAGE -- no secrets
+#    to configure.
+#
+# 2. Allow the pipeline to push commits back to the repo:
+#    Settings > Repository > Protected branches > main
+#    > Allowed to push and merge: add "CI/CD Jobs"
+#
+# ============================================================
+
+include:
+  - local: '.gitlab/workflow.yml'
